@@ -149,7 +149,19 @@ output application/json
         </ee:transform>
         <logger level="INFO" message="post:\world:application\json:customerbank-api-config" />
     </flow>
-    <flow name="delete:\test\(key):customerbank-api-config">
+    <flow name="customerbank-apiFlow" doc:id="b54069fe-00d3-4090-85d8-8432d56bd565" >
+		<ee:transform doc:name="Transform Message" doc:id="1c4bed7e-04e1-48c7-b164-daf35e2522a2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="delete:\test\(key):customerbank-api-config">
         <ee:transform>
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
